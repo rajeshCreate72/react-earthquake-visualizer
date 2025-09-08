@@ -1,69 +1,70 @@
-# React + TypeScript + Vite
+# Earthquake Visualizer
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A simple interactive earthquake visualizer built with **React**, **TypeScript**, **Vite**, and **React-Leaflet**.  
+It fetches live earthquake data from the USGS GeoJSON API and displays earthquake locations on a map with dynamic markers based on magnitude.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## Expanding the ESLint configuration
+- Interactive Leaflet map with zoom and pan functionality  
+- Displays earthquake markers dynamically from live USGS GeoJSON API  
+- Marker size and color reflect earthquake magnitude  
+- Popups show earthquake details (location, magnitude, time)  
+- Scroll wheel zoom enabled via `whenCreated`
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+## ⚡ Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+- React + TypeScript  
+- Vite for fast build & development  
+- React-Leaflet (Leaflet bindings for React)  
+- USGS Earthquake GeoJSON API
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## ⚙️ Installation
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/earthquake-visualizer.git
+    ```
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+2. Install dependencies:
+    ```bash
+    npm install
+    ```
+
+3. Run the development server:
+    ```bash
+    npm run dev
+    ```
+
+---
+
+## 🌐 Earthquake Data API
+
+Data is fetched from the USGS GeoJSON feed (all earthquakes in the past day):
+
+
+---
+
+## 📁 Project Structure
+
+src/
+├── components/
+│ └── Map.tsx # Main map component with earthquake logic
+├── App.tsx # Entry point of the app
+├── main.tsx # Vite entry file
+└── index.css # Global styles
+
+
+---
+
+## ⚡ Notes
+
+- Uses `whenCreated` prop to configure map behavior (e.g., scroll wheel zoom)  
+- Markers are dynamically sized and colored based on magnitude  
+- Suitable starting point for adding filters, legends, or animations
+
